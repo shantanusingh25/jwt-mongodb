@@ -4,7 +4,8 @@ const path = require("path");
 const colors = require("colors");
 const { serverLog, serverLogFilePath } = require("./middlewares/server.logger.js");
 const requestLogger = require("./middlewares/req-res-logger.js");
-
+const register_route = require("./routes/register.route.js");
+const login_route = require("./routes/login.route.js");
 const app = express();
 const connectDB = require("./db/connect.db");
 
@@ -25,10 +26,9 @@ app.use(express.urlencoded({ extended: false }));
 // ✅ Static Middleware - should be before custom routes
 app.use(express.static(path.join(__dirname, "public")));
 
-// Optional: API route
-app.get("/api", (req, res) => {
-    res.status(200).send("API is running.");
-});
+//: API route
+app.use("/api/auth/register"  , register_route)
+app.use("/api/auth/login" , login_route);
 
 // Server start
 app.listen(HTTP_SERVER_PORT, async () => {

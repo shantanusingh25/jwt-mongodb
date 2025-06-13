@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { login } = require("../controllers/login.controller.js");
+const { register } = require("../controllers/register.controller.js");
 
 router.use((req, res, next) => {
     // Middleware to log request details
@@ -7,6 +7,6 @@ router.use((req, res, next) => {
     next();
 });
 
-router.post("/", login);
+router.post("/", register);
 
 module.exports = router;
