@@ -1,0 +1,33 @@
+{
+  "name": "jwt-monogdb",
+  "version": "1.0.0",
+  "description": "This is for learning jwt based authentication and autherisation, MongoDB database is used as database. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "jwt-mongodb"
+  },
+  "keywords": [
+    "jwt",
+    "mongodb",
+    "jwt-mongodb",
+    "authn",
+    "authz",
+    "authentication",
+    "authersiation"
+  ],
+  "author": "Shantanu Singh",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.2",
+    "path": "^0.12.7"
+  }
+}

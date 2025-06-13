@@ -1,0 +1,39 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Optional build outputs
+dist/
+build/
+
+# IDEs/editors
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
+
+# Dependency lock files (optional: keep one if you're using npm or yarn)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Others (optional depending on tools)
+*.tgz
+*.swp
+*.swo
