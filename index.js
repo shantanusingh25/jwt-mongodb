@@ -3,35 +3,42 @@ const express = require("express");
 const path = require("path");
 const colors = require("colors");
 const { serverLog, serverLogFilePath } = require("./middlewares/server.logger.js");
+const requestLogger = require("./middlewares/req-res-logger.js");
 
 const app = express();
 const connectDB = require("./db/connect.db");
 
-// defining the port
-const HTTP_SERVER_PORT = process.env.PORT || 3001
+// Define port
+const HTTP_SERVER_PORT = process.env.PORT || 3001;
 
-// connecting to the database
+// Connect to DB
 connectDB();
 
-//public 
-app.use(express.static(path.join(__dirname, "public")));
-// parsing the data , body and url-encoded
+// Logger Middleware
+const reqResLogFilePath = path.join(__dirname, "logs/req-res.log.txt");
+app.use(requestLogger(reqResLogFilePath)); // Apply logger to all requests
+
+// Body Parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// routes
+// ✅ Static Middleware - should be before custom routes
+app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/" , (req , res) => {
-    res.status(200).send("Api is running.");
-})
+// Optional: API route
+app.get("/api", (req, res) => {
+    res.status(200).send("API is running.");
+});
 
-// app listening.
-app.listen(HTTP_SERVER_PORT, async function () {
+// Server start
+app.listen(HTTP_SERVER_PORT, async () => {
     try {
-        console.log(`Server is running on port ${HTTP_SERVER_PORT} and url -> http://localhost:${HTTP_SERVER_PORT}`.green.underline.bold);
-        await serverLog(serverLogFilePath, `Server is running on port ${HTTP_SERVER_PORT}`);
+        console.log(
+            `Server is running on http://localhost:${HTTP_SERVER_PORT}`.green.underline.bold
+        );
+        await serverLog(serverLogFilePath, `Server started on port ${HTTP_SERVER_PORT}`);
     } catch (error) {
-        console.error("Failed to log server start:".bgWhite.red.bold, error);
+        console.error("Logging failed:".bgWhite.red, error.message);
         process.exit(1);
     }
 });
