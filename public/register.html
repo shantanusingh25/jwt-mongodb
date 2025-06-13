@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - NotesApp</title>
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+<body>
+    <a href="/" class="back-to-home">← Back to Home</a>
+    
+    <div class="register-container">
+        <div class="register-form">
+            <div class="logo">NotesApp</div>
+            <h1 class="form-title">Create Account</h1>
+            <p class="form-subtitle">Join thousands of users organizing their thoughts with NotesApp</p>
+            
+            <div class="error-message" id="errorMessage">
+                Please fill in all required fields correctly.
+            </div>
+            
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms" class="checkbox-label">
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <label for="newsletter" class="checkbox-label">
+                        Send me updates about new features and tips
+                    </label>
+                </div>
+                
+                <button type="submit" class="register-btn">Create Account</button>
+            </form>
+            
+            <!-- <div class="divider">
+                <span>Or register with</span>
+            </div>
+            
+            <div class="social-buttons">
+                <a href="#" class="social-btn">
+                    <span>🔵</span>
+                    Google
+                </a>
+                <a href="#" class="social-btn">
+                    <span>📘</span>
+                    Facebook
+                </a>
+            </div> -->
+            
+            <div class="login-link">
+                Already have an account? <a href="/login.html">Sign in</a>
+            </div>
+        </div>
+        
+        <div class="register-info">
+            <div class="info-content">
+                <h2>Welcome to NotesApp</h2>
+                <p>Start your journey to better organization and productivity. Join our community of creators and thinkers.</p>
+                
+                <ul class="features-list">
+                    <li>
+                        <span class="feature-icon">🚀</span>
+                        <span>Get started in seconds</span>
+                    </li>
+                    <li>
+                        <span class="feature-icon">☁️</span>
+                        <span>Sync across all devices</span>
+                    </li>
+                    <li>
+                        <span class="feature-icon">🔒</span>
+                        <span>Your data is secure</span>
+                    </li>
+                    <li>
+                        <span class="feature-icon">📱</span>
+                        <span>Mobile & desktop apps</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
