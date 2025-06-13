@@ -14,10 +14,7 @@ const connectDB = async () => {
             process.exit(1); 
         }
 
-        const conn = await mongoose.connect(dbURI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        const conn = await mongoose.connect(dbURI);
  
         console.log(`✅ MongoDB Connected: ${conn.connection.host}`.green.bold);
         await dbLog(dbLogFilePath, `MongoDB Connected: ${conn.connection.host}`);

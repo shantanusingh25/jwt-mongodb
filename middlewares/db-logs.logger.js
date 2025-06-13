@@ -11,7 +11,7 @@ async function dbLog(filepath, message) {
     
     const logMessage = `${date} - ${message} - Hostname: ${hostname} - Platform: ${platform}\n`;
     
-    console.log("hii")
+
     try {
         await fs.appendFile(filepath, logMessage); // ✅ promise-based
         console.log(`DB Log: ${logMessage}`.green.bold.underline);
